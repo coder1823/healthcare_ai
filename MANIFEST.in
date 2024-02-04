@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include healthcare_ai *.css
+recursive-include healthcare_ai *.csv
+recursive-include healthcare_ai *.html
+recursive-include healthcare_ai *.ico
+recursive-include healthcare_ai *.js
+recursive-include healthcare_ai *.json
+recursive-include healthcare_ai *.md
+recursive-include healthcare_ai *.png
+recursive-include healthcare_ai *.py
+recursive-include healthcare_ai *.svg
+recursive-include healthcare_ai *.txt
+recursive-exclude healthcare_ai *.pyc
