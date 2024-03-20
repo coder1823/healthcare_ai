@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-02-27 00:29:07.689479",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "next_appointment",
+  "last_visit",
+  "description_id",
+  "total_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "next_appointment",
+   "fieldtype": "Date",
+   "label": "Next Appointment"
+  },
+  {
+   "fieldname": "last_visit",
+   "fieldtype": "Date",
+   "label": "Last Visit"
+  },
+  {
+   "fieldname": "description_id",
+   "fieldtype": "Data",
+   "label": "Description ID"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount "
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-02-27 07:57:46.148833",
+ "modified_by": "Administrator",
+ "module": "Medinsights",
+ "name": "Appointment reference",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
