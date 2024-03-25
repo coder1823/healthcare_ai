@@ -1,0 +1,188 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-21 00:16:52.525759",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_0vslh",
+  "appointment_tab",
+  "online_appointment_type",
+  "consulate_time_per_person",
+  "number_of_appointment",
+  "online_appointment_payment_type",
+  "column_break_2j0br",
+  "is_extra_charge_for_online_appointment",
+  "extra_charge_inr",
+  "online_appointment_refund_based_on",
+  "penalty_",
+  "column_break_2necy",
+  "is_registration_fee_is_mandatory",
+  "registration_fee",
+  "reschedule_has_extra_charge",
+  "reschedule_charge",
+  "appointment_charges_based_on",
+  "appointment_charge",
+  "column_break_ui6gf",
+  "allow_reschedule_for_patient",
+  "allow_manual_buffer",
+  "ward_tab",
+  "use_task_manager"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_0vslh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "appointment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Appointment Settings"
+  },
+  {
+   "depends_on": "eval:doc.online_appointment_type == \"Based On time\"",
+   "fieldname": "consulate_time_per_person",
+   "fieldtype": "Time",
+   "label": "Consulate time per person"
+  },
+  {
+   "fieldname": "column_break_2j0br",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "is_extra_charge_for_online_appointment",
+   "fieldtype": "Select",
+   "label": "Is Extra charge for online Appointment",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "column_break_2necy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.is_extra_charge_for_online_appointment == \"Yes\"",
+   "fieldname": "extra_charge_inr",
+   "fieldtype": "Currency",
+   "label": "Extra Charge (Inr)"
+  },
+  {
+   "fieldname": "column_break_ui6gf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_reschedule_for_patient",
+   "fieldtype": "Check",
+   "label": "Allow Reschedule for patient"
+  },
+  {
+   "fieldname": "online_appointment_type",
+   "fieldtype": "Select",
+   "label": "Online Appointment Based On",
+   "options": "\nBased On time\nBased On Count"
+  },
+  {
+   "depends_on": "eval:doc.online_appointment_type == \"Based On Count\"",
+   "fieldname": "number_of_appointment",
+   "fieldtype": "Int",
+   "label": "Number of Appointment"
+  },
+  {
+   "fieldname": "is_registration_fee_is_mandatory",
+   "fieldtype": "Select",
+   "label": "Is registration fee is mandatory",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.is_registration_fee_is_mandatory == \"Yes\"",
+   "fieldname": "registration_fee",
+   "fieldtype": "Currency",
+   "label": "Registration fee"
+  },
+  {
+   "fieldname": "online_appointment_payment_type",
+   "fieldtype": "Select",
+   "label": "Online Appointment Payment Type",
+   "options": "\nBefore Consult\nAfter Consult"
+  },
+  {
+   "fieldname": "online_appointment_refund_based_on",
+   "fieldtype": "Select",
+   "label": "Online Appointment Refund Based On ",
+   "options": "\nRefund full payment without penalty\nRefund  payment with penalty"
+  },
+  {
+   "depends_on": "eval:doc.online_appointment_refund_based_on == \"Refund  payment with penalty\"",
+   "fieldname": "penalty_",
+   "fieldtype": "Percent",
+   "label": "Penalty % "
+  },
+  {
+   "depends_on": "eval:doc.allow_reschedule_for_patient == 1",
+   "fieldname": "reschedule_has_extra_charge",
+   "fieldtype": "Select",
+   "label": "Reschedule has Extra Charge",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.reschedule_has_extra_charge == \"Yes\"",
+   "fieldname": "reschedule_charge",
+   "fieldtype": "Currency",
+   "label": "Reschedule Charge"
+  },
+  {
+   "depends_on": "eval:doc.appointment_charges_based_on == \"Same charges for all\"",
+   "fieldname": "appointment_charge",
+   "fieldtype": "Currency",
+   "label": "Appointment Charge"
+  },
+  {
+   "fieldname": "appointment_charges_based_on",
+   "fieldtype": "Select",
+   "label": "Appointment Charges Based On",
+   "options": "\nCharges vary based on the doctor\nSame charges for all"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_manual_buffer",
+   "fieldtype": "Check",
+   "label": "Allow Manual Buffer"
+  },
+  {
+   "fieldname": "ward_tab",
+   "fieldtype": "Tab Break",
+   "label": "Nursing Setting"
+  },
+  {
+   "fieldname": "use_task_manager",
+   "fieldtype": "Data",
+   "label": "Use Task Manager"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-03-24 21:40:21.764331",
+ "modified_by": "Administrator",
+ "module": "settings",
+ "name": "MedInsights Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
