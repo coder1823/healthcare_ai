@@ -1,2 +1,4 @@
 Healthcare 
 Medinsights
+settings
+Healthcare Staff Management

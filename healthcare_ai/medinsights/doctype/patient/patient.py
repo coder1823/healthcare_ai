@@ -39,7 +39,7 @@ class Patient(Document):
 				user.enabled = 1
 				user.save()
 				role = frappe.get_doc("User",user.name)
-				role.role_profile_name = "patient"
+				role.role_profile_name = "Patient"
 				role.new_password = self.password
 				role.save()
 		else:
