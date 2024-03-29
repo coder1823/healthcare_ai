@@ -14,13 +14,13 @@
   "blood_group",
   "address",
   "allergies",
+  "patient_status",
   "column_break_zkszm",
   "patient_last_name",
   "date_of_birth",
   "emergency_person_name",
   "height",
   "smoking_status",
-  "patient_status",
   "bmi",
   "column_break_akoou",
   "patient_full_name",
@@ -70,8 +70,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Blood Group",
-   "options": "\nA+\nA-\nB+\nB-\nAB+\nAB-\nO+\nO-",
-   "reqd": 1
+   "options": "\nA+\nA-\nB+\nB-\nAB+\nAB-\nO+\nO-"
   },
   {
    "fieldname": "mobile_number",
@@ -233,7 +232,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-18 23:23:33.968649",
+ "modified": "2024-03-26 09:26:13.307954",
  "modified_by": "Administrator",
  "module": "Medinsights",
  "name": "Patient",

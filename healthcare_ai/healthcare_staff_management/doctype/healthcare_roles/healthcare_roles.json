@@ -11,7 +11,8 @@
  "engine": "InnoDB",
  "field_order": [
   "role",
-  "status"
+  "status",
+  "dont_disable_user"
  ],
  "fields": [
   {
@@ -24,12 +25,18 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Active\nInactive"
+  },
+  {
+   "default": "0",
+   "fieldname": "dont_disable_user",
+   "fieldtype": "Check",
+   "label": "Don't disable User and employee"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-24 21:58:32.901780",
+ "modified": "2024-03-25 22:26:32.835773",
  "modified_by": "Administrator",
  "module": "Healthcare Staff Management",
  "name": "Healthcare Roles",
