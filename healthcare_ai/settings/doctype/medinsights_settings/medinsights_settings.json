@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_0vslh",
+  "system_used_by",
   "appointment_tab",
   "online_appointment_type",
   "consulate_time_per_person",
@@ -37,6 +38,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.system_used_by != 'GOVERMENT'",
    "fieldname": "appointment_tab",
    "fieldtype": "Tab Break",
    "label": "Appointment Settings"
@@ -159,13 +161,19 @@
    "fieldname": "use_task_manager",
    "fieldtype": "Data",
    "label": "Use Task Manager"
+  },
+  {
+   "fieldname": "system_used_by",
+   "fieldtype": "Select",
+   "label": "System Used By",
+   "options": "GOVERMENT\nNON - GOVERMENT"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-03-24 21:40:21.764331",
+ "modified": "2024-03-29 06:41:34.501369",
  "modified_by": "Administrator",
  "module": "settings",
  "name": "MedInsights Settings",

@@ -15,7 +15,7 @@ class HealthcareRoles(Document):
 				des_doc.designation_name = self.role
 				des_doc.save()
 				print("- - - - - --  - - - -  created ")
-		elif self.dont_disable_user == 0 and self.status == "Inactive":
+		elif self.dont_disable_user == 0 and self.status == "Inactive" and dest_name:
 			des_doc_name = self.role  
 			des_doc = frappe.get_doc("Designation", des_doc_name)
 			if des_doc:
