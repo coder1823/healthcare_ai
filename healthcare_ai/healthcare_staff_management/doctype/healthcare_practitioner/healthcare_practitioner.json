@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:emp__id",
  "creation": "2024-03-25 23:02:07.416749",
  "default_view": "List",
  "doctype": "DocType",
@@ -10,14 +9,18 @@
  "field_order": [
   "first_name",
   "gender",
-  "date_of_joining",
+  "role",
   "column_break_97ado",
   "last_name",
-  "role",
-  "column_break_yj8su",
-  "full_name",
   "date_of_birth",
-  "emp__id"
+  "specialization",
+  "column_break_yj8su",
+  "date_of_joining",
+  "emp__id",
+  "appointments_section",
+  "appointment_schedule",
+  "inpatient_charge",
+  "outpatient_charge"
  ],
  "fields": [
   {
@@ -29,11 +32,6 @@
    "fieldname": "last_name",
    "fieldtype": "Data",
    "label": "Last Name"
-  },
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Data",
-   "label": "Full name"
   },
   {
    "fieldname": "gender",
@@ -48,15 +46,13 @@
   },
   {
    "fieldname": "date_of_birth",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "Date of Birth"
   },
   {
    "fieldname": "emp__id",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Emp  ID",
-   "options": "Employee",
-   "read_only": 1,
    "unique": 1
   },
   {
@@ -72,15 +68,44 @@
   {
    "fieldname": "column_break_yj8su",
    "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.role == 'Doctor'",
+   "fieldname": "specialization",
+   "fieldtype": "Link",
+   "label": "Specialization",
+   "options": "Doctor Specializations"
+  },
+  {
+   "depends_on": "eval:doc.role == 'Doctor' && doc.emp__id",
+   "fieldname": "appointments_section",
+   "fieldtype": "Section Break",
+   "label": "Appointments"
+  },
+  {
+   "fieldname": "appointment_schedule",
+   "fieldtype": "Table",
+   "label": "Appointment Schedule",
+   "options": "Appointment Schedule"
+  },
+  {
+   "fieldname": "inpatient_charge",
+   "fieldtype": "Currency",
+   "label": "Inpatient charge"
+  },
+  {
+   "fieldname": "outpatient_charge",
+   "fieldtype": "Currency",
+   "label": "Outpatient charge"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-25 23:07:25.627259",
+ "modified": "2024-03-29 07:33:44.387961",
  "modified_by": "Administrator",
  "module": "Healthcare Staff Management",
  "name": "Healthcare Practitioner",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
