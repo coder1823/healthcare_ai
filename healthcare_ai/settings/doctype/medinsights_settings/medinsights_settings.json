@@ -9,6 +9,12 @@
  "field_order": [
   "section_break_0vslh",
   "system_used_by",
+  "token_rest_based_on",
+  "column_break_dwnqr",
+  "appointment_based_on",
+  "token_before_check_in",
+  "dr_allocation_based_on_ward",
+  "appointment_user_exits_pop_up",
   "appointment_tab",
   "online_appointment_type",
   "consulate_time_per_person",
@@ -167,13 +173,47 @@
    "fieldtype": "Select",
    "label": "System Used By",
    "options": "GOVERMENT\nNON - GOVERMENT"
+  },
+  {
+   "depends_on": "eval:doc.system_used_by == 'GOVERMENT'",
+   "fieldname": "dr_allocation_based_on_ward",
+   "fieldtype": "Select",
+   "label": "DR allocation based on ward",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "token_rest_based_on",
+   "fieldtype": "Int",
+   "label": "Token Rest"
+  },
+  {
+   "fieldname": "column_break_dwnqr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "appointment_based_on",
+   "fieldtype": "Select",
+   "label": "Appointment Based On",
+   "options": "Ward Number\nDoctor\nOverall"
+  },
+  {
+   "default": "0",
+   "fieldname": "appointment_user_exits_pop_up",
+   "fieldtype": "Check",
+   "label": "Appointment user exits pop up"
+  },
+  {
+   "default": "0",
+   "fieldname": "token_before_check_in",
+   "fieldtype": "Check",
+   "label": "Generate token before doctor check in "
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-03-29 06:41:34.501369",
+ "modified": "2024-04-12 08:39:28.345943",
  "modified_by": "Administrator",
  "module": "settings",
  "name": "MedInsights Settings",

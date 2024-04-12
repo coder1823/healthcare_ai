@@ -7,20 +7,30 @@ from frappe.model.document import Document
 class HealthcareRoles(Document):
     
 	def create_designation(self):
-		dest_name = frappe.db.get_list('Designation',{'name':self.role},['name'])
-		print(("-")*20,dest_name)
+		dest_name = frappe.db.get_all('Designation',{'name':self.role},['name'])
 		if self.status == "Active":
 			if not dest_name:
 				des_doc = frappe.new_doc("Designation")
 				des_doc.designation_name = self.role
 				des_doc.save()
-				print("- - - - - --  - - - -  created ")
 		elif self.dont_disable_user == 0 and self.status == "Inactive" and dest_name:
 			des_doc_name = self.role  
 			des_doc = frappe.get_doc("Designation", des_doc_name)
 			if des_doc:
 				frappe.delete_doc("Designation", des_doc_name)
-			
+    
+	def create_role(self):
+		role_name = frappe.db.get_all('Role',{'name':self.role},['name'])
+		if self.status == "Active":
+			if not role_name:
+				role_doc = frappe.new_doc('Role')
+				role_doc.role_name = self.role
+				role_doc.save()
+		elif self.dont_disable_user == 0 and self.status == "Inactive" and role_name:
+				role_doc_name = self.role  
+				des_doc = frappe.get_doc("Role", role_doc_name)
+				if des_doc:
+					frappe.delete_doc("Role", role_doc_name)
 
 	def inactivate_role_id(self):
 		if self.dont_disable_user ==0:
@@ -41,4 +51,6 @@ class HealthcareRoles(Document):
 	def before_save(self):
 		self.create_designation()
 		self.inactivate_role_id()
+		self.create_role()
+	
 

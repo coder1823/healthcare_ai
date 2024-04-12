@@ -3,6 +3,7 @@
 
 frappe.ui.form.on('Healthcare Practitioner', {
     refresh: function(frm) {
+        
         frappe.call({
             'method': 'healthcare_ai.healthcare_staff_management.doctype.healthcare_practitioner.healthcare_practitioner.active_role',
             callback: function(r) {
@@ -18,5 +19,18 @@ frappe.ui.form.on('Healthcare Practitioner', {
                 }
             }
         });
+        frappe.call({
+            method: 'healthcare_ai.hidden_field.get_field_list',
+            callback:function(r){
+                if (r.message){
+                   var  system_used_by = r.message['system_used_by']
+                    frm.set_value('used_by',system_used_by)
+                    if (r.message['dr_allocation'] == 'No') {
+                        frm.toggle_display('ward_number',0)
+                    }
+                    
+                }
+            }
+        })
     }
 });
