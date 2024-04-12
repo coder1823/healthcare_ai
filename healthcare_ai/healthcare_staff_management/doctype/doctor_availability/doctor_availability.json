@@ -1,40 +1,44 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:specialization_name",
- "creation": "2024-03-29 07:15:34.228067",
+ "creation": "2024-04-04 22:02:21.842235",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "specialization_name"
+  "date",
+  "availablity_reference"
  ],
  "fields": [
   {
-   "fieldname": "specialization_name",
-   "fieldtype": "Data",
-   "label": "Specialization name",
-   "unique": 1
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "availablity_reference",
+   "fieldtype": "Table",
+   "label": "Availablity reference",
+   "options": "Doctor availablity reference"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
+ "issingle": 1,
  "links": [],
- "modified": "2024-03-29 07:15:48.361175",
+ "modified": "2024-04-06 11:24:14.296347",
  "modified_by": "Administrator",
  "module": "Healthcare Staff Management",
- "name": "Doctor Specializations",
- "naming_rule": "By fieldname",
+ "name": "Doctor Availability",
  "owner": "Administrator",
  "permissions": [
   {
    "create": 1,
    "delete": 1,
    "email": 1,
-   "export": 1,
    "print": 1,
    "read": 1,
-   "report": 1,
    "role": "System Manager",
    "share": 1,
    "write": 1

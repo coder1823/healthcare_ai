@@ -38,7 +38,8 @@
   "password",
   "appointment_section",
   "appointment",
-  "naming_series"
+  "naming_series",
+  "patient_category"
  ],
  "fields": [
   {
@@ -62,8 +63,7 @@
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Date of Birth",
-   "reqd": 1
+   "label": "Date of Birth"
   },
   {
    "fieldname": "blood_group",
@@ -76,8 +76,7 @@
    "fieldname": "mobile_number",
    "fieldtype": "Phone",
    "in_list_view": 1,
-   "label": "Mobile Number",
-   "reqd": 1
+   "label": "Mobile Number"
   },
   {
    "fieldname": "address",
@@ -226,13 +225,19 @@
    "fieldtype": "Select",
    "label": "Patient Status",
    "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "patient_category",
+   "fieldtype": "Select",
+   "label": "Patient category",
+   "options": "OP\nIP"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-26 09:26:13.307954",
+ "modified": "2024-04-10 06:39:33.206888",
  "modified_by": "Administrator",
  "module": "Medinsights",
  "name": "Patient",

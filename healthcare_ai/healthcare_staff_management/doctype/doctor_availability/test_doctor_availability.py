@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestDoctorSpecializations(FrappeTestCase):
+class TestDoctorAvailability(FrappeTestCase):
 	pass

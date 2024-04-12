@@ -17,10 +17,12 @@
   "column_break_yj8su",
   "date_of_joining",
   "emp__id",
+  "ward_number",
   "appointments_section",
   "appointment_schedule",
   "inpatient_charge",
-  "outpatient_charge"
+  "outpatient_charge",
+  "used_by"
  ],
  "fields": [
   {
@@ -74,10 +76,10 @@
    "fieldname": "specialization",
    "fieldtype": "Link",
    "label": "Specialization",
-   "options": "Doctor Specializations"
+   "options": "Healthcare Specializations"
   },
   {
-   "depends_on": "eval:doc.role == 'Doctor' && doc.emp__id",
+   "depends_on": "eval:(doc.role == 'Doctor' && doc.emp__id && (doc.used_by !='GOVERMENT'))",
    "fieldname": "appointments_section",
    "fieldtype": "Section Break",
    "label": "Appointments"
@@ -97,11 +99,24 @@
    "fieldname": "outpatient_charge",
    "fieldtype": "Currency",
    "label": "Outpatient charge"
+  },
+  {
+   "fieldname": "used_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "used by"
+  },
+  {
+   "fetch_from": "specialization.ward_number",
+   "fetch_if_empty": 1,
+   "fieldname": "ward_number",
+   "fieldtype": "Int",
+   "label": "Ward Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-29 07:33:44.387961",
+ "modified": "2024-04-03 08:00:47.669196",
  "modified_by": "Administrator",
  "module": "Healthcare Staff Management",
  "name": "Healthcare Practitioner",

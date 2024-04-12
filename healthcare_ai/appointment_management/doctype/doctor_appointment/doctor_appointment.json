@@ -1,0 +1,140 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-04-10 06:17:53.784882",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "patient_id",
+  "previous",
+  "column_break_s1att",
+  "name1",
+  "ward_number",
+  "column_break_42eeo",
+  "phone_number",
+  "token_number",
+  "reset_token_number",
+  "column_break_cfsr2",
+  "doctor",
+  "specialization",
+  "next",
+  "naming_series"
+ ],
+ "fields": [
+  {
+   "default": "Now",
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "label": "Date"
+  },
+  {
+   "fetch_from": "patient_id.patient_full_name",
+   "fetch_if_empty": 1,
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Patient Name"
+  },
+  {
+   "fetch_from": "patient_id.mobile_number",
+   "fetch_if_empty": 1,
+   "fieldname": "phone_number",
+   "fieldtype": "Phone",
+   "label": "Patient Mobile Number"
+  },
+  {
+   "fetch_from": "doctor.ward_number",
+   "fetch_if_empty": 1,
+   "fieldname": "ward_number",
+   "fieldtype": "Int",
+   "label": "Ward Number"
+  },
+  {
+   "fieldname": "token_number",
+   "fieldtype": "Int",
+   "label": "Token Number"
+  },
+  {
+   "fieldname": "reset_token_number",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Reset Token Number"
+  },
+  {
+   "fieldname": "doctor",
+   "fieldtype": "Link",
+   "label": "Doctor",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "doctor.specialization",
+   "fetch_if_empty": 1,
+   "fieldname": "specialization",
+   "fieldtype": "Data",
+   "label": "Specialization"
+  },
+  {
+   "fieldname": "column_break_s1att",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_42eeo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cfsr2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "patient_id",
+   "fieldtype": "Link",
+   "label": "Patient ID",
+   "options": "Patient"
+  },
+  {
+   "fieldname": "next",
+   "fieldtype": "Button",
+   "label": "Next"
+  },
+  {
+   "fieldname": "previous",
+   "fieldtype": "Button",
+   "label": "Previous"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "naming series",
+   "options": "####"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-11 06:52:34.043082",
+ "modified_by": "Administrator",
+ "module": "Appointment Management",
+ "name": "Doctor Appointment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

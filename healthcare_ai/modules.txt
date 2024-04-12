@@ -2,3 +2,4 @@ Healthcare
 Medinsights
 settings
 Healthcare Staff Management
+Appointment Management
