@@ -38,6 +38,25 @@ class DoctorAppointment(Document):
 					token_number_query = frappe.db.sql(f"SELECT token_number FROM `tabDoctor Appointment` WHERE DATE(creation)=CURDATE( ) ORDER BY name DESC LIMIT 1 ",as_dict = True)
 					self.token_number = 1 if not token_number_query else token_number_query[0].token_number + 1
 
+
+
 	def before_save(self):
 		self.check_alredy_exits()
 		self.generate_token_number()
+  
+  
+  
+  
+@frappe.whitelist()
+def available_doctor_list():
+    
+    setting = frappe.get_single('MedInsights Settings')
+    if setting.token_before_check_in ==1:
+        doctor_list = frappe.get_all('Employee',{'designation':'Doctor','status':'Active'},'name')
+        return [doctor_id.name for doctor_id in doctor_list ] if doctor_list else []
+    else:
+        doctor_list = frappe.get_all('Doctor availablity reference','doctor_id')
+        return [doct_id.doctor_id for doct_id in doctor_list] if doctor_list else []
+        
+        
+      

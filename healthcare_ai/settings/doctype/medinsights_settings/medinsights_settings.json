@@ -11,6 +11,7 @@
   "system_used_by",
   "token_rest_based_on",
   "column_break_dwnqr",
+  "appointment_settings_tab",
   "appointment_based_on",
   "token_before_check_in",
   "dr_allocation_based_on_ward",
@@ -207,13 +208,19 @@
    "fieldname": "token_before_check_in",
    "fieldtype": "Check",
    "label": "Generate token before doctor check in "
+  },
+  {
+   "depends_on": "eval:doc.system_used_by == 'GOVERMENT'",
+   "fieldname": "appointment_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Appointment Settings"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-04-12 08:39:28.345943",
+ "modified": "2024-04-12 23:31:32.097556",
  "modified_by": "Administrator",
  "module": "settings",
  "name": "MedInsights Settings",
