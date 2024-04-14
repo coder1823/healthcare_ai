@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-14 20:56:04.675036",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_fdkjc",
+  "count",
+  "column_break_4tbpk",
+  "completed",
+  "column_break_zepsz",
+  "add",
+  "column_break_yijfx",
+  "total",
+  "section_break_hck5s",
+  "section_break_o1a4t",
+  "date",
+  "column_break_j1dww",
+  "patient_id",
+  "column_break_3hdfu",
+  "patient_name",
+  "waiting_count"
+ ],
+ "fields": [
+  {
+   "default": "Now",
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_j1dww",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "patient_id",
+   "fieldtype": "Link",
+   "label": "Patient ID",
+   "options": "Patient"
+  },
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name"
+  },
+  {
+   "fieldname": "column_break_3hdfu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "count",
+   "fieldtype": "HTML",
+   "label": "Waiting",
+   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.date}} <center>Waiting<center></center></center></div>\n\n\n\n"
+  },
+  {
+   "fieldname": "section_break_hck5s",
+   "fieldtype": "Section Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_fdkjc",
+   "fieldtype": "Section Break",
+   "label": "Patient Count Monitor"
+  },
+  {
+   "fieldname": "section_break_o1a4t",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "waiting_count",
+   "fieldtype": "Data",
+   "label": "waiting count"
+  },
+  {
+   "fieldname": "add",
+   "fieldtype": "HTML",
+   "label": "Cancelled",
+   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.date}} <center>Cancelled<center></center></center></div>\n\n\n\n"
+  },
+  {
+   "fieldname": "column_break_4tbpk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zepsz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "completed",
+   "fieldtype": "HTML",
+   "label": "Completed",
+   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.date}} <center>Completed<center></center></center></div>\n\n\n\n"
+  },
+  {
+   "fieldname": "column_break_yijfx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "HTML",
+   "label": "Total",
+   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.date}} <center>Total<center></center></center></div>\n\n\n\n"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-14 21:51:53.888589",
+ "modified_by": "Administrator",
+ "module": "Appointment Management",
+ "name": "Consultation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

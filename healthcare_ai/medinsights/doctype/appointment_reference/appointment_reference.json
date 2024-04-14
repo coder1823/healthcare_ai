@@ -9,7 +9,8 @@
   "next_appointment",
   "last_visit",
   "description_id",
-  "total_amount"
+  "token_number",
+  "consultee_id"
  ],
  "fields": [
   {
@@ -28,16 +29,22 @@
    "label": "Description ID"
   },
   {
-   "fieldname": "total_amount",
-   "fieldtype": "Currency",
-   "label": "Total Amount "
+   "fieldname": "token_number",
+   "fieldtype": "Int",
+   "label": "Token Number"
+  },
+  {
+   "fieldname": "consultee_id",
+   "fieldtype": "Link",
+   "label": "Consultee id",
+   "options": "Employee"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-02-27 07:57:46.148833",
+ "modified": "2024-04-14 22:07:39.772236",
  "modified_by": "Administrator",
  "module": "Medinsights",
  "name": "Appointment reference",
