@@ -16,13 +16,15 @@
   "ward_number",
   "column_break_42eeo",
   "phone_number",
+  "number",
   "token_number",
   "reset_token_number",
   "column_break_cfsr2",
   "doctor",
   "specialization",
   "next",
-  "naming_series"
+  "naming_series",
+  "status"
  ],
  "fields": [
   {
@@ -39,8 +41,7 @@
    "label": "Patient Name"
   },
   {
-   "fetch_from": "patient_id.mobile_number",
-   "fetch_if_empty": 1,
+   "depends_on": "eval:doc.number == null",
    "fieldname": "phone_number",
    "fieldtype": "Phone",
    "label": "Patient Mobile Number"
@@ -110,11 +111,25 @@
    "hidden": 1,
    "label": "naming series",
    "options": "####"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "Waiting for consultation\nConsultation Completed\nCancelled"
+  },
+  {
+   "depends_on": "eval:doc.patient_id && doc.phone_number == null ",
+   "fetch_from": "patient_id.mobile_number",
+   "fieldname": "number",
+   "fieldtype": "Data",
+   "label": "Patient Mobile Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-11 06:52:34.043082",
+ "modified": "2024-04-14 00:19:36.420633",
  "modified_by": "Administrator",
  "module": "Appointment Management",
  "name": "Doctor Appointment",
