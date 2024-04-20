@@ -14,6 +14,7 @@
   "appointment_settings_tab",
   "appointment_based_on",
   "token_before_check_in",
+  "show_patient_monitorization",
   "dr_allocation_based_on_ward",
   "appointment_user_exits_pop_up",
   "appointment_tab",
@@ -214,13 +215,19 @@
    "fieldname": "appointment_settings_tab",
    "fieldtype": "Tab Break",
    "label": "Appointment Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "show_patient_monitorization",
+   "fieldtype": "Check",
+   "label": "Show Patient Monitorization"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-04-12 23:31:32.097556",
+ "modified": "2024-04-15 22:21:50.344627",
  "modified_by": "Administrator",
  "module": "settings",
  "name": "MedInsights Settings",

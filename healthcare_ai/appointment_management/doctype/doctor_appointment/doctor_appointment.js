@@ -25,6 +25,36 @@ frappe.ui.form.on('Doctor Appointment', {
 			})
 			
 		}
+		frappe.call({
+			method:'healthcare_ai.hidden_field.get_field_list',
+			callback:function(r){
+				if(r.message['appointment_based_on']=='Ward Number'){
+						frm.toggle_display('doctor',0)
+				}
+			}
+		})
+		frm.fields_dict.new_token.$input.css({'font-size': '16px',
+		"text-align":"center",
+		"background-color": "#42a5fc",
+		"color":"white",
+		"height": "40px",
+		"width": "150px",
+		"margin": "0 auto",
+		"display": "block"});
+	},
+	ward_number:function(frm){
+		frappe.call({
+			method:'healthcare_ai.hidden_field.get_specialization_name',
+			args:{
+				'ward_number':frm.doc.ward_number
+			},callback:function(r){
+				if(r.message){
+					frm.set_value('specialization',r.message)
+				}
+			}
+		})
+},
+	new_token:function(frm){
+		location.replace(`${origin}/app/doctor-appointment/new-doctor-appointment-dusknawkg`)
 	}
-
 });

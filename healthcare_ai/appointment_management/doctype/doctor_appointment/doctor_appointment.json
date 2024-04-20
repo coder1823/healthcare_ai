@@ -22,7 +22,11 @@
   "column_break_cfsr2",
   "doctor",
   "specialization",
-  "next",
+  "section_break_3i4cr",
+  "section_break_ttk7f",
+  "column_break_p29wk",
+  "column_break_qbow6",
+  "new_token",
   "naming_series",
   "status"
  ],
@@ -47,7 +51,7 @@
    "label": "Patient Mobile Number"
   },
   {
-   "fetch_from": "doctor.ward_number",
+   "fetch_from": "specialization.ward_number",
    "fetch_if_empty": 1,
    "fieldname": "ward_number",
    "fieldtype": "Int",
@@ -56,7 +60,8 @@
   {
    "fieldname": "token_number",
    "fieldtype": "Int",
-   "label": "Token Number"
+   "label": "Token Number",
+   "read_only": 1
   },
   {
    "fieldname": "reset_token_number",
@@ -74,8 +79,9 @@
    "fetch_from": "doctor.specialization",
    "fetch_if_empty": 1,
    "fieldname": "specialization",
-   "fieldtype": "Data",
-   "label": "Specialization"
+   "fieldtype": "Link",
+   "label": "Specialization",
+   "options": "Healthcare Specializations"
   },
   {
    "fieldname": "column_break_s1att",
@@ -96,21 +102,16 @@
    "options": "Patient"
   },
   {
-   "fieldname": "next",
-   "fieldtype": "Button",
-   "label": "Next"
-  },
-  {
    "fieldname": "previous",
    "fieldtype": "Button",
+   "hidden": 1,
    "label": "Previous"
   },
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "hidden": 1,
-   "label": "naming series",
-   "options": "####"
+   "label": "naming series"
   },
   {
    "fieldname": "status",
@@ -125,11 +126,32 @@
    "fieldname": "number",
    "fieldtype": "Data",
    "label": "Patient Mobile Number"
+  },
+  {
+   "fieldname": "new_token",
+   "fieldtype": "Button",
+   "label": "New Token"
+  },
+  {
+   "fieldname": "section_break_ttk7f",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_p29wk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qbow6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_3i4cr",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-14 00:19:36.420633",
+ "modified": "2024-04-20 11:19:59.348759",
  "modified_by": "Administrator",
  "module": "Appointment Management",
  "name": "Doctor Appointment",

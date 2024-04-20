@@ -1,0 +1,30 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-18 22:51:00.415239",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ward_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "ward_number",
+   "fieldtype": "Int",
+   "label": "Ward Number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-18 22:51:00.415239",
+ "modified_by": "Administrator",
+ "module": "Healthcare Staff Management",
+ "name": "Ward Incharge Reference",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
