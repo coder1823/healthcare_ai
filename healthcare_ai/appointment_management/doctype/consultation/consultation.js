@@ -13,6 +13,13 @@ frappe.ui.form.on('Consultation', {
 	refresh: function(frm) {
 		if (!frm.doc.status){
 		frm.set_value('status','consulting')
+		frappe.call({ method: "frappe.client.get_value", async:false, args:{ doctype:'Employee', filters:{ user_id:frappe.session.user }, fieldname:['name'] }
+		,callback:function (r) { 
+		if(r.message != undefined){ 
+			console.log(r.message['name'])
+			frm.set_value('doctor_id',r.message['name'])
+			}
+			} });
 		frm.save()
 		}
 		frm.add_custom_button(__("Next"),function(){
@@ -21,8 +28,9 @@ frappe.ui.form.on('Consultation', {
 				frappe.call({ method: "frappe.client.get_value", async:false, args:{ doctype:'Employee', filters:{ user_id:frappe.session.user }, fieldname:['name'] }
 				,callback:function (r) { 
 					if(r.message != undefined){ 
-						frm.set_value('doctor_id',r.message)
-					}
+						console.log(r.message['name'])
+						frm.set_value('doctor_id',r.message['name'])
+						}
 					 } });
 					 frm.save()
 			}
@@ -39,6 +47,10 @@ frappe.ui.form.on('Consultation', {
 
 				}
 			})
+		}),
+		frm.add_custom_button(__("Skip"),function(){
+			frm.set_value('status','Skipped')
+			frm.save()
 		}),
 		frm.add_custom_button(__("Recall"),function(){
 			textToTamilSpeech(`Token Number ${frm.doc.token_number} Come inside`)
@@ -63,9 +75,23 @@ frappe.ui.form.on('Consultation', {
 				}
 			}
 		})
+		frappe.call({
+			method:'healthcare_ai.hidden_field.get_active_doctors',
+			callback:function(r){
+			if (r.message) {
+				var doctor_list = r.message;
+				frm.set_query("doctor", function() {
+					return {
+						filters: {
+							name: ['in', doctor_list]
+						}
+					};
+				});
+			}
+		}
+	})			
 	},
 	transfer_ward_number:function(frm){
-		
 			frappe.call({
 				method:'healthcare_ai.hidden_field.get_specialization_name',
 				args:{
@@ -76,8 +102,6 @@ frappe.ui.form.on('Consultation', {
 					}
 				}
 			})
-			
-		
+	},
 
-	}
 });

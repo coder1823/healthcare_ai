@@ -9,7 +9,9 @@
  "engine": "InnoDB",
  "field_order": [
   "specialization_name",
-  "ward_number"
+  "ward_number",
+  "is_admission_ward",
+  "maxium_admission"
  ],
  "fields": [
   {
@@ -22,11 +24,23 @@
    "fieldname": "ward_number",
    "fieldtype": "Int",
    "label": "Ward Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_admission_ward",
+   "fieldtype": "Check",
+   "label": "Is admission ward"
+  },
+  {
+   "depends_on": "eval:doc.is_admission_ward == 1",
+   "fieldname": "maxium_admission",
+   "fieldtype": "Int",
+   "label": "Maxium admission"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-03 07:57:06.845364",
+ "modified": "2024-04-22 21:02:43.114990",
  "modified_by": "Administrator",
  "module": "Healthcare Staff Management",
  "name": "Healthcare Specializations",

@@ -5,6 +5,7 @@ import frappe
 from frappe.model.document import Document
 
 class DoctorAppointment(Document):
+
 	def create_patient(self):
 		patient_doc = frappe.new_doc('Patient')
 		patient_doc.patient_first_name = self.name1
@@ -72,30 +73,38 @@ class DoctorAppointment(Document):
 				if self.ward_number not in doctor_ward_list:
 						frappe.throw('There is no Doctor Available ')
 			else:
-				frappe.throw('There is no Doctor Availablity ')				
+				frappe.throw('There is no Doctor Availablity ')	
+    
+	def update_status(self):
+		consultation_doc = frappe.get_doc('Consultation',{'prescription_id':self.name})
+		if consultation_doc and self.status == 'Cancelled':
+			consultation_doc.status = 'Cancelled'
+			consultation_doc.save()
 
 
 	def before_save(self):
 		self.check_doctor_available()
 		self.check_alredy_exits()
 		self.generate_token_number()
-  
+		self.update_status()
+
 	def on_update(self):
 		self.create_consultation()
 		self.update_patient_record()
 		
+		
 
 @frappe.whitelist()
 def available_doctor_list():
-    
-    setting = frappe.get_single('MedInsights Settings')
-    if setting.token_before_check_in ==1:
-        doctor_list = frappe.get_all('Employee',{'designation':'Doctor','status':'Active'},'name')
-        return [doctor_id.name for doctor_id in doctor_list ] if doctor_list else []
-    elif setting.appointment_based_on == 'Doctor':
-        doctor_list = frappe.get_all('Doctor availablity reference','doctor_id')
-        return [doct_id.doctor_id for doct_id in doctor_list] if doctor_list else []
+	
+	setting = frappe.get_single('MedInsights Settings')
+	if setting.token_before_check_in ==1:
+		doctor_list = frappe.get_all('Employee',{'designation':'Doctor','status':'Active'},'name')
+		return [doctor_id.name for doctor_id in doctor_list ] if doctor_list else []
+	elif setting.appointment_based_on == 'Doctor':
+		doctor_list = frappe.get_all('Doctor availablity reference','doctor_id')
+		return [doct_id.doctor_id for doct_id in doctor_list] if doctor_list else []
 
-        
-        
-      
+		
+		
+	

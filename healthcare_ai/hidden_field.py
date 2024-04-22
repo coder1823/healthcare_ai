@@ -1,6 +1,5 @@
 import frappe
 
-
 def error_log(doctype,title,error):
     error_log = frappe.new_doc('Error Log')
     try:
@@ -25,4 +24,9 @@ def get_specialization_name(ward_number):
     if ward_number:
         specialization_name =frappe.db.get_value('Healthcare Specializations', {'ward_number':ward_number},'specialization_name')
         return specialization_name if specialization_name else ''
+    
+@frappe.whitelist()
+def get_active_doctors():
+    active_doctor_query = frappe.db.sql(f"SELECT name FROM tabEmployee WHERE designation = 'Doctor' AND status = 'Active' ",as_dict = True)
+    return [i.name for i in active_doctor_query] if active_doctor_query else []
         

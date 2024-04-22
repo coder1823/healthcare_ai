@@ -118,7 +118,7 @@
    "fieldtype": "Select",
    "hidden": 1,
    "label": "Status",
-   "options": "Waiting for consultation\nConsultation Completed\nCancelled"
+   "options": "Waiting for consultation\nCompleted\nSkipped\nCancelled"
   },
   {
    "depends_on": "eval:doc.patient_id && doc.phone_number == null ",
@@ -151,7 +151,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-20 11:19:59.348759",
+ "modified": "2024-04-22 21:27:14.993438",
  "modified_by": "Administrator",
  "module": "Appointment Management",
  "name": "Doctor Appointment",

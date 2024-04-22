@@ -10,7 +10,43 @@ from translate import Translator
 
 
 class Consultation(Document):
-	pass
+    
+    def update_status(self):
+        completed = ['Admitted','Internal Transfer','Completed']
+        if self.prescription_id:
+            doct_appt = frappe.get_doc('Doctor Appointment',self.prescription_id)
+            if self.status in completed:
+                doct_appt.status = 'Completed'
+            elif self.status == 'Cancelled':
+                doct_appt.status = 'Cancelled'
+            elif self.status == 'Skipped':
+                doct_appt.status = 'Skipped'
+            doct_appt.save()
+            
+    def send_alert(self):
+        pass
+    
+    def check_for_admit(self):
+        if self.type == 'Admit' and self.status != 'Admitted':
+            ip_doc = frappe.new_doc('In Patient Management')
+            ip_doc.patient_id = self.patient_id
+            ip_doc.patient_name = self.patient_name
+            ip_doc.doctor = self.doctor_id
+            ip_doc.ward_number = self.transfer_ward_number
+            ip_doc.specialization = self.specialization
+            ip_doc.type = 'OP'
+            ip_doc.save()
+            self.admission_id = ip_doc.name
+            self.status = 'Admitted'
+            self.send_alert()
+        
+        
+    def on_update(self):
+        self.update_status()
+        
+    def before_save(self):
+        self.check_for_admit()
+
 
 def check_status_wise_count(status,query):
         if query:
