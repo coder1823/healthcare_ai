@@ -7,8 +7,9 @@ frappe.ui.form.on('Healthcare Specializations', {
             method: 'healthcare_ai.hidden_field.get_field_list',
             callback:function(r){
                 if (r.message){
-                    if (r.message['dr_allocation'] == 'No') {
+                    if (r.message['system_used_by'] != 'GOVERMENT') {
                         frm.toggle_display('ward_number',0)
+                        frm.toggle_display('is_admission_ward',0)
                     }
                     
                 }

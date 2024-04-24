@@ -32,7 +32,6 @@ class Patient(Document):
 		if self.email_id not in user_email_list:
 			if self.is_patient_user ==1:
 				self.password = self.name
-				print("- - - - - - -  - - - - ",self.password)
 				user = frappe.new_doc("User")
 				user.email = self.email_id
 				user.first_name = self.patient_first_name

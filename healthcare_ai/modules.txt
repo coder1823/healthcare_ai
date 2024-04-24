@@ -3,3 +3,5 @@ Medinsights
 settings
 Healthcare Staff Management
 Appointment Management
+Laboratory management
+Patient Management

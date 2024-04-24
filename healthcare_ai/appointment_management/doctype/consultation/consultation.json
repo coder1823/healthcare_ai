@@ -1,12 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2024-04-14 20:56:04.675036",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "general_tab",
   "section_break_fdkjc",
   "count",
   "column_break_4tbpk",
@@ -22,7 +24,28 @@
   "patient_id",
   "column_break_3hdfu",
   "patient_name",
-  "waiting_count"
+  "column_break_9fyd4",
+  "prescription_id",
+  "column_break_6g5rx",
+  "waiting_count",
+  "doctor_id",
+  "completed_count",
+  "cancelled_count",
+  "total_count",
+  "next_appointment",
+  "section_break_ta31a",
+  "prescription",
+  "note",
+  "internal_transferadmit_section",
+  "type",
+  "doctor",
+  "specialization",
+  "transfer_ward_number",
+  "naming_series",
+  "status",
+  "ward_number",
+  "token_number",
+  "admission_id"
  ],
  "fields": [
   {
@@ -54,7 +77,7 @@
    "fieldname": "count",
    "fieldtype": "HTML",
    "label": "Waiting",
-   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.date}} <center>Waiting<center></center></center></div>\n\n\n\n"
+   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.waiting_count}} <center>Waiting<center></center></center></div>\n\n\n\n"
   },
   {
    "fieldname": "section_break_hck5s",
@@ -73,13 +96,14 @@
   {
    "fieldname": "waiting_count",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "waiting count"
   },
   {
    "fieldname": "add",
    "fieldtype": "HTML",
    "label": "Cancelled",
-   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.date}} <center>Cancelled<center></center></center></div>\n\n\n\n"
+   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.cancelled_count}} <center>Cancelled<center></center></center></div>\n\n\n\n"
   },
   {
    "fieldname": "column_break_4tbpk",
@@ -93,7 +117,7 @@
    "fieldname": "completed",
    "fieldtype": "HTML",
    "label": "Completed",
-   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.date}} <center>Completed<center></center></center></div>\n\n\n\n"
+   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.completed_count}} <center>Completed<center></center></center></div>\n\n\n\n"
   },
   {
    "fieldname": "column_break_yijfx",
@@ -103,16 +127,149 @@
    "fieldname": "total",
    "fieldtype": "HTML",
    "label": "Total",
-   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.date}} <center>Total<center></center></center></div>\n\n\n\n"
+   "options": "\n\n\n<meta charset=\"UTF-8\">\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n<title>Number Card Hover Animation</title>\n<style>\n  \n  .card {\n    width: 250px;\n    height: 100px;\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    transition: transform 0.3s ease;\n  }\n\n  .card:hover {\n    transform: scale(1.1);\n  }\n</style>\n\n\n\n<div class=\"card\">{{doc.total_count}} <center>Total<center></center></center></div>\n\n\n\n"
+  },
+  {
+   "fieldname": "doctor_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Doctor ID",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "completed_count",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "completed count"
+  },
+  {
+   "fieldname": "cancelled_count",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "cancelled count"
+  },
+  {
+   "fieldname": "total_count",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Total count"
+  },
+  {
+   "fieldname": "prescription",
+   "fieldtype": "Table",
+   "label": "Prescription",
+   "options": "Prescription"
+  },
+  {
+   "fieldname": "prescription_id",
+   "fieldtype": "Link",
+   "label": "Prescription ID",
+   "options": "Doctor Appointment"
+  },
+  {
+   "fieldname": "section_break_ta31a",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_9fyd4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Long Text",
+   "label": "Note"
+  },
+  {
+   "fieldname": "general_tab",
+   "fieldtype": "Tab Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "internal_transferadmit_section",
+   "fieldtype": "Tab Break",
+   "label": "Internal Transfer/Admit"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Internal Transfer'",
+   "fieldname": "doctor",
+   "fieldtype": "Link",
+   "label": "Doctor",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "doctor.specialization",
+   "fetch_if_empty": 1,
+   "fieldname": "specialization",
+   "fieldtype": "Link",
+   "label": "Specialization",
+   "options": "Healthcare Specializations"
+  },
+  {
+   "fetch_from": "specialization.ward_number",
+   "fetch_if_empty": 1,
+   "fieldname": "transfer_ward_number",
+   "fieldtype": "Data",
+   "label": "Ward Number"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming series",
+   "options": "\nAppt-.DD.####"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nconsulting\nAdmitted\nInternal Transfer\nCompleted\nCancelled\nSkipped"
+  },
+  {
+   "fetch_from": "prescription_id.ward_number",
+   "fetch_if_empty": 1,
+   "fieldname": "ward_number",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Ward Number"
+  },
+  {
+   "fetch_from": "prescription_id.token_number",
+   "fetch_if_empty": 1,
+   "fieldname": "token_number",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Token Number"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nInternal Transfer\nAdmit"
+  },
+  {
+   "fieldname": "next_appointment",
+   "fieldtype": "Date",
+   "label": "Next Appointment"
+  },
+  {
+   "fieldname": "column_break_6g5rx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Admit' && doc.status =='Admitted'",
+   "fieldname": "admission_id",
+   "fieldtype": "Link",
+   "label": "Admission ID",
+   "options": "In Patient Management"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-14 21:51:53.888589",
+ "modified": "2024-04-22 23:44:15.488204",
  "modified_by": "Administrator",
  "module": "Appointment Management",
  "name": "Consultation",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
