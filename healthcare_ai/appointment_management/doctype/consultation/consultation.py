@@ -14,7 +14,7 @@ class Consultation(Document):
     def update_status(self):
         completed = ['Admitted','Internal Transfer','Completed']
         if self.prescription_id:
-            doct_appt = frappe.get_doc('Doctor Appointment',self.prescription_id)
+            doct_appt = frappe.get_doc('Doctor Appointment',{'name':self.prescription_id})
             if self.status in completed:
                 doct_appt.status = 'Completed'
             elif self.status == 'Cancelled':

@@ -14,6 +14,7 @@
   {
    "fieldname": "date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Date"
   },
   {
@@ -27,7 +28,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-04-06 11:24:14.296347",
+ "modified": "2024-04-24 07:44:51.845311",
  "modified_by": "Administrator",
  "module": "Healthcare Staff Management",
  "name": "Doctor Availability",

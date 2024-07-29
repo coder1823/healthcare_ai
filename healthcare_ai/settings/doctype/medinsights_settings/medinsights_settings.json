@@ -38,7 +38,13 @@
   "allow_reschedule_for_patient",
   "allow_manual_buffer",
   "ward_tab",
-  "use_task_manager"
+  "use_task_manager",
+  "geo_fencing_tab",
+  "latitude",
+  "column_break_yd9rt",
+  "longitude",
+  "column_break_vcsl8",
+  "range"
  ],
  "fields": [
   {
@@ -221,13 +227,41 @@
    "fieldname": "show_patient_monitorization",
    "fieldtype": "Check",
    "label": "Show Patient Monitorization"
+  },
+  {
+   "fieldname": "geo_fencing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Geo Fencing"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Data",
+   "label": "Latitude"
+  },
+  {
+   "fieldname": "column_break_yd9rt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Data",
+   "label": "Longitude"
+  },
+  {
+   "fieldname": "range",
+   "fieldtype": "Int",
+   "label": "Range"
+  },
+  {
+   "fieldname": "column_break_vcsl8",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-04-15 22:21:50.344627",
+ "modified": "2024-06-25 00:26:46.107917",
  "modified_by": "Administrator",
  "module": "settings",
  "name": "MedInsights Settings",

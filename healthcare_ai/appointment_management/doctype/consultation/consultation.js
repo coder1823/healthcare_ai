@@ -22,6 +22,17 @@ frappe.ui.form.on('Consultation', {
 			} });
 		frm.save()
 		}
+		frappe.call({
+			method:'healthcare_ai.appointment_management.doctype.consultation.consultation.get_monetization_count',
+			args:{
+				'doctor_id':frm.doc.doctor_id
+			},callback:function(r){
+				if (r.message == 'update total'){
+					
+				}
+			}
+		})
+
 		frm.add_custom_button(__("Next"),function(){
 			if(frm.doc.status == 'consulting'){
 				frm.set_value('status','Completed')
@@ -54,17 +65,6 @@ frappe.ui.form.on('Consultation', {
 		}),
 		frm.add_custom_button(__("Recall"),function(){
 			textToTamilSpeech(`Token Number ${frm.doc.token_number} Come inside`)
-		})
-
-		frappe.call({
-			method:'healthcare_ai.appointment_management.doctype.consultation.consultation.get_monetization_count',
-			args:{
-				'doctor_id':frm.doc.doctor_id
-			},callback:function(r){
-				if (r.message == 'update total'){
-					
-				}
-			}
 		})
 		frappe.call({
 			method:'healthcare_ai.hidden_field.get_field_list',

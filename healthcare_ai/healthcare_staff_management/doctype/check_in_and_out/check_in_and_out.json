@@ -39,12 +39,12 @@
    "fieldname": "log_inout",
    "fieldtype": "Select",
    "label": "Log In/Out",
-   "options": "In\nOut"
+   "options": "IN\nOUT"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-08 22:44:46.085110",
+ "modified": "2024-06-25 01:23:51.184168",
  "modified_by": "Administrator",
  "module": "Healthcare Staff Management",
  "name": "Check In and out",

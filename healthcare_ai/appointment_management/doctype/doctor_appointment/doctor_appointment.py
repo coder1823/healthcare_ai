@@ -17,7 +17,7 @@ class DoctorAppointment(Document):
 	def check_alredy_exits(self):
 		# checking alredy token exits 
 		if self.patient_id:
-			appt_doc = frappe.db.sql(f"SELECT name FROM `tabDoctor Appointment` WHERE patient_id = '{self.patient_id}' AND ward_number = '{self.ward_number}' AND DATE(creation)=CURDATE( ) ",as_dict = True)
+			appt_doc = frappe.db.sql(f"SELECT name FROM `tabDoctor Appointment` WHERE patient_id = '{self.patient_id}' AND ward_number = '{self.ward_number}' AND DATE(creation)=CURDATE( ) AND name != {self.name}",as_dict = True)
 			if appt_doc and self.status != 'Cancelled':
 					frappe.throw(f'Token already Exits {appt_doc[0].name}')
 		# creating patient
@@ -54,6 +54,7 @@ class DoctorAppointment(Document):
 			if frappe.get_single('MedInsights Settings').appointment_based_on == "Doctor":
 				consultation_doc.doctor_id = self.doctor
 			consultation_doc.save()
+			frappe.db.commit()
 
 
 	def update_patient_record(self):
@@ -76,10 +77,11 @@ class DoctorAppointment(Document):
 				frappe.throw('There is no Doctor Availablity ')	
     
 	def update_status(self):
-		consultation_doc = frappe.get_doc('Consultation',{'prescription_id':self.name})
-		if consultation_doc and self.status == 'Cancelled':
-			consultation_doc.status = 'Cancelled'
-			consultation_doc.save()
+		if self.status == 'Cancelled':
+			consultation_doc = frappe.get_doc('Consultation',{'prescription_id':self.name})
+			if consultation_doc:
+				consultation_doc.status = 'Cancelled'
+				consultation_doc.save()
 
 
 	def before_save(self):
@@ -87,6 +89,7 @@ class DoctorAppointment(Document):
 		self.check_alredy_exits()
 		self.generate_token_number()
 		self.update_status()
+
 
 	def on_update(self):
 		self.create_consultation()

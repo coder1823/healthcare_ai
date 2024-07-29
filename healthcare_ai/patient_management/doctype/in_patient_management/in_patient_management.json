@@ -21,12 +21,14 @@
  ],
  "fields": [
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "type",
    "fieldtype": "Select",
    "label": "Type",
    "options": "\nEmergency\nOP"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "patient_id",
    "fieldtype": "Link",
    "label": "Patient Id",
@@ -71,6 +73,7 @@
    "options": "adm.#####"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "bed_number",
    "fieldtype": "Int",
    "label": "Bed Number"
@@ -78,7 +81,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-23 02:04:53.734370",
+ "modified": "2024-04-24 06:41:47.354476",
  "modified_by": "Administrator",
  "module": "Patient Management",
  "name": "In Patient Management",
